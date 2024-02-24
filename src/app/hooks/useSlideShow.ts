@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
-export default function useSlideshow(scopeContainer, targetContainer) {
+export default function useSlideshow(scopeContainer: any, targetContainer: string) {
     useGSAP(() => {
         let panels = gsap.utils.toArray(targetContainer)
         gsap.to(panels, {

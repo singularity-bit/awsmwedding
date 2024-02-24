@@ -4,7 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 export default function useIsMobile(width: number) {
     const [targetReached, setTargetReached] = useState(false);
     const [windowWidth, setWindowWidth] = useState(0);
-    const updateTarget = useCallback((e) => {
+    const updateTarget = useCallback((e: any) => {
         if (e.matches) {
             setTargetReached(true);
         } else {
@@ -22,6 +22,7 @@ export default function useIsMobile(width: number) {
         }
 
         return () => media.removeListener(updateTarget);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
         const handleWindowResize = () => {
