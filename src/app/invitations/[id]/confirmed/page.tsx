@@ -10,7 +10,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
 }
 export async function generateStaticParams() {
     const invitations = await getInvitationsIds()
-    return invitations.map((invitation) => ({
+    return invitations?.map((invitation) => ({
         id: invitation.invitationId,
     }))
 }

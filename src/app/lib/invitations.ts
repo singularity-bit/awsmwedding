@@ -10,9 +10,9 @@ export interface Invitation {
 export async function getInvitationsIds() {
   try {
     const client = await clientPromise
-    const db = client.db("wedding")
+    const db = client?.db("wedding")
     const invitations = await db
-      .collection<Invitation>("invitations")
+      ?.collection<Invitation>("invitations")
       .find()
       .toArray();
     return invitations
@@ -24,9 +24,9 @@ export async function getInvitationsIds() {
 export async function getInvitationId(id: string) {
   try {
     const client = await clientPromise
-    const db = client.db("wedding")
+    const db = client?.db("wedding")
     const invitations = await db
-      .collection<Invitation>("invitations")
+      ?.collection<Invitation>("invitations")
       .findOne<Invitation>({ invitationId: id })
 
     return invitations
@@ -38,12 +38,12 @@ export async function getInvitationId(id: string) {
 export async function confirmInvitation(id: string) {
   try {
     const client = await clientPromise
-    const db = client.db("wedding")
+    const db = client?.db("wedding")
     const invitation = await db
-      .collection<Invitation>("invitations")
+      ?.collection<Invitation>("invitations")
       .updateOne({ invitationId: id }, { $set: { confirmed: true } })
 
-    return invitation.matchedCount > 0
+    return invitation?.matchedCount && invitation?.matchedCount > 0
 
 
   } catch (error) {
