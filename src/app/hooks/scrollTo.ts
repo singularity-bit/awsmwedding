@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import { MouseEventHandler, RefObject } from "react";
+import { RefObject } from "react";
 gsap.registerPlugin(ScrollToPlugin);
 
 export function useScrollToPage<T>(container: RefObject<T>, pageNr: number) {
