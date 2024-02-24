@@ -1,12 +1,13 @@
 import { useGSAP } from "@gsap/react";
 import gsap from 'gsap';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
+import { RefObject } from "react";
 gsap.registerPlugin(ScrollToPlugin);
 
-export function useScrollToPage(container: any, pageNr: number) {
-    const { contextSafe } = useGSAP({ scope: container?.current });
+export function useScrollToPage<T>(container: RefObject<T>, pageNr: number) {
+    const { contextSafe } = useGSAP({ scope: container });
 
-    const onClickHandler = contextSafe((e: any) => {
+    const onClickHandler = contextSafe((e: Event) => {
         if (e) {
             e.preventDefault();
             gsap.to(window, {
