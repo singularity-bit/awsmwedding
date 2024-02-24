@@ -26,9 +26,6 @@ export default function Letter() {
         x: 0,
         y: 0,
     })
-    const [isFlowerDone, setFlowerDone] = useState(false)
-    const [isLabel1Done, setLabel1Done] = useState(false)
-    const [isLabel2Done, setLabel2Done] = useState(false)
     const flowerRef = useRef<HTMLImageElement>(null)
     const letter1Ref = useRef<HTMLImageElement>(null)
     const letter2Ref = useRef<HTMLImageElement>(null)
@@ -41,10 +38,9 @@ export default function Letter() {
             opacity: 0,
             scrollTrigger: {
                 trigger: `#invitation`,
-                scrub: true
+                scrub: true,
 
             },
-            onComplete: () => setFlowerDone(true),
         })
         gsap.timeline().from(letter1Ref.current, {
             xPercent: 30,
@@ -52,10 +48,9 @@ export default function Letter() {
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: `#invitation`,
-                scrub: true
+                scrub: true,
 
             },
-            onComplete: () => setLabel1Done(true)
         })
         gsap.timeline().from(letter2Ref.current, {
             xPercent: 30,
@@ -64,11 +59,9 @@ export default function Letter() {
             ease: 'power3.out',
             scrollTrigger: {
                 trigger: `#invitation`,
-                scrub: true
-
+                scrub: true,
 
             },
-            onComplete: () => setLabel2Done(true)
 
         })
 
@@ -77,7 +70,7 @@ export default function Letter() {
 
     }, []);
     const hanldeMouseMove = (e: MouseEvent) => {
-        isFlowerDone && isLabel1Done && isLabel2Done && setClientMouse({
+        setClientMouse({
             x: e.clientX - window.innerWidth / 2,
             y: e.clientY - window.innerHeight / 2,
         })

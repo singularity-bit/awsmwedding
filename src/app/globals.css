@@ -6,19 +6,46 @@
 
 html,
 body {
+  position: relative;
   max-width: 100vw;
-  /* overflow: hidden; */
-  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: #F2EFE5;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  
 }
+
 
 
 a {
   color: inherit;
-  text-decoration: none;
+  cursor: pointer;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
+}
+.latte{
+  position: relative;
+  z-index: 1;
+}
+.paperOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  width: auto;
+  background-repeat:no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-image: url('../../public/smooth-white-stucco-wall.jpg');
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  opacity: 0.4;
+
+  z-index: 0;
 }

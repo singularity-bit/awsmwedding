@@ -19,14 +19,15 @@ export default function BackgroundImage({
                 src={image}
                 placeholder="blur"
                 quality={100}
+                sizes="100vw"
                 fill
                 style={{
-                    objectFit: 'cover'
-
+                    padding: '1rem 1rem 4rem 1rem',
+                    objectFit: 'cover',
                 }}
 
             />
-            {children}
+            <div className={styles.caption}>{children}</div>
         </div>
     )
 }
