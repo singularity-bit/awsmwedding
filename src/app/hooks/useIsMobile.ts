@@ -3,7 +3,7 @@ import { useCallback, useEffect, useState } from "react";
 
 export default function useIsMobile(width: number) {
     const [targetReached, setTargetReached] = useState(false);
-    const [windowWidth, setWindowWidth] = useState(0);
+    const [windowWidth, setWindowWidth] = useState(430);
     const updateTarget = useCallback((e: MediaQueryListEvent) => {
         if (e.matches) {
             setTargetReached(true);

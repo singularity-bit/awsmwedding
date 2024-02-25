@@ -1,3 +1,4 @@
+'use client'
 import useIsMobile from '../hooks/useIsMobile';
 import CurvedText from './CurvedText'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

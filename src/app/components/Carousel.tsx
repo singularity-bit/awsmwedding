@@ -12,10 +12,10 @@ export default function Carousel({ data }: { data: Invitation }) {
     useSlideshow(main, `.${styles.panel}`)
     const names = data?.persons?.map(person => person.name)?.toString()
 
-    return <section className={styles.container} ref={main}>
+    return <div className={styles.container} ref={main}>
         <FirstPage />
         <SecondPage names={names} />
         <ThirdPage />
         <FourthPage data={data} />
-    </section>
+    </div>
 }
