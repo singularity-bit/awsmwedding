@@ -12,7 +12,7 @@ export function useScrollToPage<T>(container: RefObject<T>, pageNr: number) {
         if (e) {
             e.preventDefault();
             gsap.to(window, {
-                scrollTo: 400 * pageNr
+                scrollTo: 600 * pageNr
             });
         }
     });

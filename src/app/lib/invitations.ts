@@ -77,3 +77,20 @@ export async function getIsConfirmed(id: string) {
     await client.close()
   }
 }
+export async function getConfirmedInvitationsIds() {
+  const client = await clientPromise()
+
+  try {
+    const db = client.db('wedding')
+    const invitations = await db
+      ?.collection<Invitation>("invitations")
+      .find({ confirmed: true })
+      .toArray();
+    return invitations
+
+  } catch (error) {
+    throw error
+  } finally {
+    await client.close()
+  }
+}

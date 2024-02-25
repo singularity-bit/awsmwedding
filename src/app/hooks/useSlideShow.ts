@@ -10,16 +10,17 @@ export default function useSlideshow<T>(scopeContainer: RefObject<T>, targetCont
     useGSAP(() => {
         let panels = gsap.utils.toArray(targetContainer)
         gsap.to(panels, {
-            xPercent: -100 * (panels.length - 1),
+            YPercent: -100 * (panels.length - 1),
             ease: "none",
             scrollTrigger: {
                 //@ts-ignore
                 trigger: scopeContainer.current,
-                pin: true,
-                scrub: 1,
+                // pin: true,
+                // scrub: 1,
+                start: 'top top',
                 snap: 1 / (panels.length - 1),
                 // base vertical scrolling on how wide the container is so it feels more natural.
-                end: "+=1500",
+                end: "bottom bottom",
             }
         });
 

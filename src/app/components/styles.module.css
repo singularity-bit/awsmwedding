@@ -97,6 +97,11 @@
   font-size: 2rem;
 
 }
+.heading--xs{
+  font-size: 1.5rem;
+  font-weight: bold;
+
+}
 .border{
     border-bottom: 5px solid #8f786a;
 }
@@ -173,33 +178,13 @@
   50%  { transform: translate(0, 15px); }
   100%   { transform: translate(0, -0px); }    
 }
-.navigationRight{
-  padding: 1rem;
-  position: absolute;    
-  bottom: 1rem;
-  right: 45vw;
-  @media (max-width: 768px) {
-    right: 25vw;
 
-  }
-}
-.navigationLeft{
-  padding: 1rem;
-  position: absolute;    
-  bottom: 1rem;
-  left: 45vw;
-  @media (max-width: 768px) {
-    left: 25vw;
-
-  }
-
-}
 .container{
   position: relative;
  display: flex;
- flex-direction: row;
+ flex-direction: column;
  flex-wrap: nowrap;
- width: 100vw;
+ width: 100%;
 }
 .capitalize{
   text-transform: capitalize;

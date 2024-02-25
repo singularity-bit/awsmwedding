@@ -1,21 +1,19 @@
 'use client'
 import { useRef, MouseEvent, useState } from 'react'
-import { useScrollToPage } from '../hooks/scrollTo'
 import { Monsieur_La_Doulaise } from "next/font/google";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faChevronLeft, faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import styles from './styles.module.css'
 import CountDown from './countdown';
 import { Invitation } from '../lib/invitations';
 import { useRouter } from 'next/navigation';
+import BackgroundImage from './backgroundImage';
+import cover from '../../../public/cover3.jpg'
 const monsieur = Monsieur_La_Doulaise({ subsets: ["latin"], weight: ['400'], });
 
 export default function FourthPage({ data }: { data: Invitation }) {
-    const container = useRef(null)
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
-    const onNextPage = useScrollToPage(container, 0)
-    const onPrevPage = useScrollToPage(container, 2.8)
     const onConfirm = async (e: MouseEvent<HTMLElement>, id: string) => {
         e.preventDefault()
         setIsLoading(true)
@@ -31,20 +29,26 @@ export default function FourthPage({ data }: { data: Invitation }) {
         })
 
     }
-    return <section className={styles.panel} ref={container}>
+    return <section className={styles.panel}>
         <div className={styles.wrapper}>
+
             <div className={styles.rightText}>
                 <h1 className={`${monsieur.className} ${styles['heading--medium']}`}>rsvp</h1>
-                {data?.confirmed ? <h2>Ne vedem la nunta 😍!</h2> : <h2>Va rugam sa ne confirmati prezenta pana pe data de 28 August</h2>}
+                {data?.confirmed ? <h2>Ne vedem la nunta 😍!</h2> : <h2>Va rugam sa ne confirmati prezenta pana pe data de 1 August</h2>}
                 <h3>Pana la eveniment mai sunt <CountDown /></h3>
 
             </div>
+            <BackgroundImage image={cover} >
+                <h1 className={`${monsieur.className} ${styles['heading--small']}`}>Vasile Maria</h1>
+            </BackgroundImage>
             {!data?.confirmed && (
                 isLoading ? <FontAwesomeIcon icon={faSpinner} spin></FontAwesomeIcon> :
-                    <a href={`/invitations/${data?.invitationId}/confirmed`} onClick={(e) => onConfirm(e, data.invitationId)} aria-disabled>Puteti confirma prin acest link </a>
+                    <h3>
+                        <a
+                            href={`/invitations/${data?.invitationId}/confirmed`} onClick={(e) => onConfirm(e, data.invitationId)} aria-disabled>Puteti confirma prin acest link </a>
+                    </h3>
+
             )}
         </div>
-        <a className={styles.navigationRight}><FontAwesomeIcon icon={faChevronRight} onClick={onNextPage} /></a>
-        <a className={styles.navigationLeft}><FontAwesomeIcon icon={faChevronLeft} onClick={onPrevPage} /></a>
     </section>
 }
