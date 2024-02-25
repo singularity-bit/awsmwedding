@@ -40,7 +40,21 @@ export async function confirmInvitation(id: string) {
       ?.collection<Invitation>("invitations")
       .updateOne({ invitationId: id }, { $set: { confirmed: true } })
 
-    return invitation?.matchedCount && invitation?.matchedCount > 0
+    return invitation?.matchedCount > 0
+
+
+  } catch (error) {
+    throw error
+  }
+}
+export async function getIsConfirmed(id: string) {
+  try {
+    const db = await clientPromise()
+    const invitation = await db
+      ?.collection<Invitation>("invitations")
+      .findOne({ invitationId: id, confirmed: true })
+
+    return invitation
 
 
   } catch (error) {
