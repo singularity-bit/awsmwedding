@@ -1,6 +1,8 @@
 import { getInvitationId, getInvitationsIds } from "@/app/lib/invitations";
 import Carousel from "@/app/components/Carousel";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 export default async function Page({ params: { id } }: { params: { id: string } }) {
@@ -10,7 +12,9 @@ export default async function Page({ params: { id } }: { params: { id: string } 
     return notFound()
   }
   return (
-    <Carousel data={invitation} />
+    <Suspense fallback={<Loading />}>
+      <Carousel data={invitation} />
+    </Suspense>
   );
 }
 export async function generateStaticParams() {

@@ -7,9 +7,13 @@ if (!process.env.MONGODB_URI) {
 const uri = process.env.MONGODB_URI;
 
 const connectDB = async () => {
-    const client = await MongoClient.connect(uri);
-
-    return client.db("wedding")
+    const client = new MongoClient(uri)
+    try {
+        await client.connect();
+        return client
+    } catch (error) {
+        throw error
+    }
 };
 // Export a module-scoped MongoClient promise. By doing this in a
 // separate module, the client can be shared across functions.

@@ -8,8 +8,10 @@ export interface Invitation {
   }[]
 }
 export async function getInvitationsIds() {
+  const client = await clientPromise()
+
   try {
-    const db = await clientPromise()
+    const db = client.db('wedding')
     const invitations = await db
       ?.collection<Invitation>("invitations")
       .find()
@@ -18,11 +20,15 @@ export async function getInvitationsIds() {
 
   } catch (error) {
     throw error
+  } finally {
+    await client.close()
   }
 }
 export async function getInvitationId(id: string) {
+  const client = await clientPromise()
+
   try {
-    const db = await clientPromise()
+    const db = client.db('wedding')
     const invitations = await db
       ?.collection<Invitation>("invitations")
       .findOne<Invitation>({ invitationId: id })
@@ -31,11 +37,15 @@ export async function getInvitationId(id: string) {
 
   } catch (error) {
     throw error
+  } finally {
+    await client.close()
   }
 }
 export async function confirmInvitation(id: string) {
+  const client = await clientPromise()
+
   try {
-    const db = await clientPromise()
+    const db = client.db('wedding')
     const invitation = await db
       ?.collection<Invitation>("invitations")
       .updateOne({ invitationId: id }, { $set: { confirmed: true } })
@@ -45,11 +55,15 @@ export async function confirmInvitation(id: string) {
 
   } catch (error) {
     throw error
+  } finally {
+    await client.close()
   }
 }
 export async function getIsConfirmed(id: string) {
+  const client = await clientPromise()
+
   try {
-    const db = await clientPromise()
+    const db = client.db('wedding')
     const invitation = await db
       ?.collection<Invitation>("invitations")
       .findOne({ invitationId: id, confirmed: true })
@@ -59,5 +73,7 @@ export async function getIsConfirmed(id: string) {
 
   } catch (error) {
     throw error
+  } finally {
+    await client.close()
   }
 }
