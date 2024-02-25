@@ -8,13 +8,11 @@ import { Invitation } from '../lib/invitations';
 import { useRouter } from 'next/navigation';
 import BackgroundImage from './backgroundImage';
 import cover from '../../../public/cover3.jpg'
-import useCountdown from '../hooks/useCountdown';
 const monsieur = Monsieur_La_Doulaise({ subsets: ["latin"], weight: ['400'], });
 
 export default function FourthPage({ data }: { data: Invitation }) {
     const router = useRouter()
     const [isLoading, setIsLoading] = useState(false)
-    const timer = useCountdown()
     const onConfirm = async (e: MouseEvent<HTMLElement>, id: string) => {
         e.preventDefault()
         setIsLoading(true)
@@ -26,8 +24,9 @@ export default function FourthPage({ data }: { data: Invitation }) {
             body: JSON.stringify({ id })
         }).then(res => res.json()).then(() => {
             router.push(`/invitations/${id}/confirmed`)
-            setIsLoading(false)
         })
+        setIsLoading(false)
+
 
     }
     return <section className={styles.panel}>
@@ -36,9 +35,6 @@ export default function FourthPage({ data }: { data: Invitation }) {
             <div className={styles.rightText}>
                 <h1 className={`${monsieur.className} ${styles['heading--medium']}`}>rsvp</h1>
                 {data?.confirmed ? <h2>Ne vedem la nunta 😍!</h2> : <h2>Va rugam sa ne confirmati prezenta pana pe data de 1 August</h2>}
-                <h3>Pana la eveniment mai sunt {
-                    timer ? <p>{timer.days} zile, {timer.hours} ore</p> : <p>woops, its gone </p>
-                }</h3>
 
             </div>
             <BackgroundImage image={cover} >
