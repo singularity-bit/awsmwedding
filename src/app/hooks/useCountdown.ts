@@ -24,7 +24,7 @@ export default function useCountdown() {
     } | undefined>(calculateTimeLeft());
 
     useEffect(() => {
-        const timer1 = setTimeout(() => setTimeLeft(calculateTimeLeft()), 1000);
+        const timer1 = setTimeout(() => setTimeLeft(calculateTimeLeft()), 5000);
 
         return () => {
             clearTimeout(timer1);

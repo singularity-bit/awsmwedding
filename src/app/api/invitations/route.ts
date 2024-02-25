@@ -5,10 +5,9 @@ import { NextRequest, NextResponse } from "next/server"
 export async function PUT(req: NextRequest, res: NextResponse) {
     try {
         const data = await req.json()
-        const path = req.nextUrl.searchParams.get('path')
-        if (data?.id && path) {
+        if (data?.id) {
             const confirmed = await confirmInvitation(data.id)
-            revalidatePath(path, 'page')
+            revalidatePath(`/invitations/${data.id}/page`, 'page')
             return NextResponse.json({ confirmed })
         } else {
             return NextResponse.json({ confirmed: false })
