@@ -24,8 +24,7 @@ export default function FourthPage({ data }: { data: Invitation }) {
             body: JSON.stringify({ id })
         }).then(res => res.json()).then(() => {
             router.push(`/invitations/${id}/confirmed`)
-        })
-        setIsLoading(false)
+        }).then(() => setIsLoading(false))
 
 
     }

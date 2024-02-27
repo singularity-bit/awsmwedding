@@ -1,8 +1,6 @@
 import { getInvitationId, getInvitationsIds } from "@/app/lib/invitations";
-import Carousel from "@/app/components/Carousel";
 import { notFound } from "next/navigation";
-import { Suspense } from "react";
-import Loading from "./loading";
+import Carousel from "../../components/Carousel";
 
 export const dynamic = 'force-dynamic'
 export default async function Page({ params: { id } }: { params: { id: string } }) {
@@ -12,9 +10,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
     return notFound()
   }
   return (
-    <Suspense fallback={<Loading />}>
-      <Carousel data={invitation} />
-    </Suspense>
+    <Carousel data={invitation} />
   );
 }
 export async function generateStaticParams() {

@@ -1,4 +1,4 @@
-import { confirmInvitation, getConfirmedInvitationsIds, getInvitationsIds, getIsConfirmed } from '@/app/lib/invitations'
+import { getInvitationsIds, getIsConfirmed } from '@/app/lib/invitations'
 import styles from '../../../components/styles.module.css'
 import { notFound } from 'next/navigation'
 export default async function Page({ params: { id } }: { params: { id: string } }) {
@@ -9,7 +9,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
     return <h1 className={styles.wrapper}>Multumim pentru confirmare 😍!</h1>
 }
 export async function generateStaticParams() {
-    const invitations = await getConfirmedInvitationsIds()
+    const invitations = await getInvitationsIds()
     return invitations?.map((invitation) => ({
         id: invitation.invitationId,
     }))
