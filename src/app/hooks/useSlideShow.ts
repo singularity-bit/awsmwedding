@@ -10,7 +10,7 @@ export default function useSlideshow<T>(scopeContainer: RefObject<T>, targetCont
     useGSAP(() => {
         let panels = gsap.utils.toArray(targetContainer)
         gsap.to(panels, {
-            YPercent: -100 * (panels.length - 1),
+            // yPercent: panels.length,
             ease: "none",
             scrollTrigger: {
                 //@ts-ignore

@@ -115,7 +115,8 @@
     height: 100vh;
     padding: 5rem 8rem 5rem 8rem;
     @media (max-width: 768px) {
-    padding: 5rem 3rem 5rem 3rem;
+    padding: 3.5rem 2rem 2.5rem 2rem;
+    gap: 1rem;
 
    }
     /* overflow: hidden; */
@@ -137,15 +138,15 @@
   position: relative;
   max-width: 600px;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-between;
-  padding: 4rem 0 4rem;
+  padding: 4rem 0 4rem; */
   
 }
 .centerText{
   text-align: center;
-  padding: 4rem 0 4rem;
+  /* padding: 0 0 4rem; */
 
 }
 .rightText{
@@ -202,3 +203,9 @@
   justify-content: flex-end;
 }
 
+.frame{
+  padding: 1rem 1rem 4rem 1rem;
+  @media (max-width: 768px) {
+    padding: 0.7rem 0.7rem 3.5rem 0.7rem;
+ }
+}

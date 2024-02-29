@@ -10,7 +10,7 @@ import { Monsieur_La_Doulaise } from "next/font/google";
 const monsieur = Monsieur_La_Doulaise({ subsets: ["latin"], weight: ['400'], });
 
 export default function FirstPage() {
-    const { isMobile, width } = useIsMobile(500)
+    const { isMobile, width } = useIsMobile(537)
     return (
         <section className={styles.panel}>
             <div className={styles.wrapper}>

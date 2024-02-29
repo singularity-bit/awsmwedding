@@ -16,13 +16,13 @@ export default function BackgroundImage({
             {overlay && <div className={styles.imageOverlay}></div>}
             <Image
                 alt="maria&vasile"
+                className={styles.frame}
                 src={image}
                 placeholder="blur"
                 quality={100}
                 sizes="100vw"
                 fill
                 style={{
-                    padding: '1rem 1rem 4rem 1rem',
                     objectFit: 'cover',
                 }}
 
