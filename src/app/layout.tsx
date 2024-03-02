@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react"
 import Header from "./components/header";
 import SideName from "./components/sidename";
 import "./globals.css";
@@ -23,6 +24,7 @@ export default function RootLayout({
         <div className='paperOverlay'></div>
         <main className='latte'>
           {children}
+          <Analytics />
         </main>
 
       </body>
