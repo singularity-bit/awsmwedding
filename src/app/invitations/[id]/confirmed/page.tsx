@@ -8,7 +8,7 @@ export default async function Page({ params: { id } }: { params: { id: string } 
     if (!invitation?.confirmed) {
         return notFound()
     }
-    return <h1 className={styles.wrapper}>Multumim pentru confirmare 😍!</h1>
+    return <h1 className={styles.wrapper}>Mulțumim pentru confirmare 😍!</h1>
 }
 export async function generateStaticParams() {
     const invitations = await getInvitationsIds()

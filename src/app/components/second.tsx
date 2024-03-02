@@ -15,7 +15,7 @@ export default function SecondPage({ names }: { names?: string }) {
                 </BackgroundImage>
                 <div className={styles.columnWrapper}>
                     <section>
-                        <h1 className={styles.capitalize}>Draga {names ?? 'invitat'}</h1>
+                        <h1 className={styles.capitalize}>Dragă {names ?? 'invitat'}</h1>
                         <p>Cu bucurie în inimi și speranță în suflete, vă invităm să ne fiți alături în ziua în care ne unim destinele. Vă așteptăm cu drag la nunta noastră, să celebrăm împreună iubirea și fericirea noastră.</p>
                     </section>
                 </div>

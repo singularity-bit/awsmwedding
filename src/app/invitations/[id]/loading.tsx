@@ -4,6 +4,6 @@ import "@fortawesome/fontawesome-svg-core/styles.css"
 import styles from '../../components/styles.module.css'
 export default function Loading() {
     return <section className={styles.wrapper}>
-        <h1 > Pregatim masa mare < FontAwesomeIcon icon={faSpinner} size="sm" spin height={50} width={50}></FontAwesomeIcon> </h1>
+        <h1 > Pregătim masa mare < FontAwesomeIcon icon={faSpinner} size="sm" spin height={50} width={50}></FontAwesomeIcon> </h1>
     </section>
 }

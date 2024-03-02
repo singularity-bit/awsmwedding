@@ -33,7 +33,10 @@ export default function FourthPage({ data }: { data: Invitation }) {
 
             <div className={styles.rightText}>
                 <h1 className={`${monsieur.className} ${styles['heading--medium']}`}>rsvp</h1>
-                {data?.confirmed ? <h2>Ne vedem la nunta 😍!</h2> : <h2>Va rugam sa ne confirmati prezenta pana pe data de 1 August</h2>}
+                {data?.confirmed ? <h2>Ne vedem la nuntă 😍!</h2> : <>
+                    <h2>Vă rugăm să ne confirmați prezența până pe data de </h2>
+                    <h2>1 August</h2>
+                </>}
 
             </div>
             <BackgroundImage image={cover} >
@@ -43,7 +46,7 @@ export default function FourthPage({ data }: { data: Invitation }) {
                 isLoading ? <FontAwesomeIcon icon={faSpinner} spin></FontAwesomeIcon> :
                     <h3>
                         <a
-                            href={`/invitations/${data?.invitationId}/confirmed`} onClick={(e) => onConfirm(e, data.invitationId)} aria-disabled>Puteti confirma prin acest link </a>
+                            href={`/invitations/${data?.invitationId}/confirmed`} onClick={(e) => onConfirm(e, data.invitationId)} aria-disabled>Puteți confirma accesând acest link </a>
                     </h3>
 
             )}

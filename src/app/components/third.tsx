@@ -9,7 +9,7 @@ export default function ThirdPage() {
         <div className={styles.wrapper}>
             <div className={styles.centerText}>
                 <h2 >DETALII EVENIMENT </h2>
-                <h3>SAMBATA</h3>
+                <h3>SÂMBĂTĂ</h3>
                 <h3>28 SEPT 2024</h3>
                 <h3>17:00</h3>
                 <h3>
