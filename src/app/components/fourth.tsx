@@ -34,8 +34,7 @@ export default function FourthPage({ data }: { data: Invitation }) {
             <div className={styles.rightText}>
                 <h1 className={`${monsieur.className} ${styles['heading--medium']}`}>rsvp</h1>
                 {data?.confirmed ? <h2>Ne vedem la nuntă 😍!</h2> : <>
-                    <h2>Vă rugăm să ne confirmați prezența până pe data de </h2>
-                    <h2>1 August</h2>
+                    <h2>Inca mai aveti timp sa va confirmati prezenta 😇</h2>
                 </>}
 
             </div>
